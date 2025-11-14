@@ -26,14 +26,18 @@ class ProdutoViewModel(private val totoRepository: TotoRepository): ViewModel() 
 
     fun obterTodos() {
         viewModelScope.launch {
-
+            try {
+                todos.value = totoRepository.obterTodos()
+            }catch (e: Exception){
+                erros.value = e.message
+            }
         }
     }
 
     fun deletarItem(toto: Toto){
         viewModelScope.launch {
             try {
-                todos.value = totoRepository.obterTodos()
+                todos.value = totoRepository.deletarItem(toto)
             }catch (e: Exception){
                 erros.value = e.message
             }

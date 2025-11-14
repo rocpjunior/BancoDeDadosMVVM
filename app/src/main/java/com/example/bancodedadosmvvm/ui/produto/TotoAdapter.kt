@@ -13,12 +13,12 @@ import com.example.bancodedadosmvvm.R
 import com.example.bancodedadosmvvm.model.Toto
 
 class TotoAdapter (
-    private val itemLista: MutableList<Toto>,
+    private val itemListaToto: MutableList<Toto>,
     private val listando: AdaptandoLista,
     private val contexto: Context
 ): RecyclerView.Adapter<TotoAdapter.ViewHolder>(){
 
-    override fun getItemCount() = itemLista.size
+    override fun getItemCount() = itemListaToto.size
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -29,12 +29,12 @@ class TotoAdapter (
     override fun onBindViewHolder(
         holder: TotoAdapter.ViewHolder,
         position: Int) {
-        holder.bindViewHolder(itemLista[position])
+        holder.bindViewHolder(itemListaToto[position])
     }
 
     fun updateList(itemLista: MutableList<Toto>){
-        this.itemLista.clear()
-        this.itemLista.addAll(itemLista)
+        this.itemListaToto.clear()
+        this.itemListaToto.addAll(itemLista)
         notifyDataSetChanged()
     }
 
